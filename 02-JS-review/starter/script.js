@@ -140,5 +140,31 @@ function getBooks() {
 }
 
 function getBook(id) {
+  // This is the arrow function from ES6
+  // id: The function getBook takes an id as a parameter.
+  // data.find(): This method iterates over the data array, and for each element, it applies the arrow function.
+  // Arrow Function (d => d.id === id): For each element d in the data array, it checks if d.id is equal to the id provided.
+  // Return Value: find() returns the first element where the condition d.id === id is true. If no such element is found, undefined is returned.
   return data.find((d) => d.id === id);
 }
+
+const books = getBooks();
+
+const book2 = getBook(2);
+
+const title2 = book2.title;
+
+/* JS destructuring
+
+In JavaScript, destructuring (not "destruct") refers to a convenient way
+of unpacking values from arrays or properties from objects into distinct variables.
+This feature was introduced in ES6 (ECMAScript 2015) and allows for cleaner and
+more readable code by simplifying the extraction of values from arrays or objects. */
+const { title, author } = getBook(3);
+
+// Notice the differrence with the bracket when destructuring array or object
+const [genre1, genre2] = book2.genres;
+
+title2;
+title;
+genre1;
