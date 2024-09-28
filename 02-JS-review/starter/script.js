@@ -150,9 +150,9 @@ function getBook(id) {
 
 const books = getBooks();
 
-const book2 = getBook(2);
+const book = getBook(1);
 
-const title2 = book2.title;
+const title2 = book.title;
 
 /* JS destructuring
 
@@ -163,8 +163,34 @@ more readable code by simplifying the extraction of values from arrays or object
 const { title, author } = getBook(3);
 
 // Notice the differrence with the bracket when destructuring array or object
-const [genre1, genre2] = book2.genres;
+// ... is the rest operator
+const [genre1, genre2, ...othergenres] = book.genres;
 
-title2;
-title;
+// ... here is the spread operator
+const newGeneres = [...book.genres, "epic fantasy"];
+
+// use .. spread operator to add new property/field in the object
+const updatedBook = {
+  ...book,
+  moviePublicationDate: "2001-12-19",
+  // Overwriting thr existing property
+  pages: 1210,
+};
+
+const getYear = (str) => str.split("-")[0];
+// equals
+const getYear1 = (str) => {
+  return str.split("-")[0];
+};
+
+const hasMovieAdaptation = book.hasMovieAdaptation;
+// JS short circuiting, if bool value false no executing afterwards
+console.log(hasMovieAdaptation && "This book has a movie.");
+
+// ?? is the nullish coalescing operator
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+
 genre1;
+othergenres;
+newGeneres;
+updatedBook;
