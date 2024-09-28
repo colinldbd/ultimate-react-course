@@ -28,7 +28,7 @@
             setTime(new Date().toLocaleTimeString());
           }, 1000);
         }, []);
-
+        // `some strings ${time}` is called template literal.
         return React.createElement("header", null, `Hello React! It's ${time}`);
       }
 
